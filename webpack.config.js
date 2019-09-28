@@ -15,7 +15,20 @@ const config = {
     filename: "[name].js"
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"]
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    alias: {
+      assets: resolve(__dirname, "client/assets"),
+      api: resolve(__dirname, "client/api"),
+      actions: resolve(__dirname, "client/actions"),
+      constants: resolve(__dirname, "client/constants"),
+      components: resolve(__dirname, "client/components"),
+      modules: resolve(__dirname, "client/modules"),
+      hocs: resolve(__dirname, "client/hocs"),
+      reducers: resolve(__dirname, "client/reducers"),
+      sagas: resolve(__dirname, "client/sagas"),
+      types: resolve(__dirname, "client/types"),
+      utils: resolve(__dirname, "client/utils")
+    }
   },
   module: {
     rules: [
@@ -28,7 +41,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "ja-navigation",
+      title: "Delivery agency",
       template: "client/index.html"
     })
   ]
