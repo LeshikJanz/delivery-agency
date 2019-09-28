@@ -3,8 +3,7 @@ import * as api from "../api/trips";
 import {
   fetchTripsRequested,
   fetchTripsSucceeded,
-  fetchTripsFailed,
-  FETCH_TRIPS_REQUESTED
+  fetchTripsFailed
 } from "../actions/trips";
 
 export function* fetchTripsSaga() {
@@ -18,5 +17,5 @@ export function* fetchTripsSaga() {
 }
 
 export function* tripsSaga() {
-  yield takeLatest(fetchTripsRequested().type, fetchTripsSaga);
+  yield takeLatest(fetchTripsRequested, fetchTripsSaga);
 }

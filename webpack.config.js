@@ -36,7 +36,28 @@ const config = {
         test: /\.tsx?$/,
         use: "babel-loader",
         exclude: /node_modules/
-      }
+      },
+      {
+        test: [/\.scss$/, /\.css$/],
+        use: [
+          require.resolve('style-loader'),
+          {
+            loader: require.resolve('css-loader'),
+            options: {
+              importLoaders: 1,
+            },
+          },
+          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   plugins: [

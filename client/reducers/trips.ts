@@ -1,8 +1,10 @@
 import { createReducer } from '../utils/createReducer'
-import { Trip } from '../types/Trip';
 import { fetchTripsRequested, fetchTripsSucceeded, fetchTripsFailed } from '../actions/trips';
 
-const initialState: { list: Trip[], errors: string[], loading: boolean } = {
+import { Trip } from '../types/Trip';
+import { TripState } from '../types/common'
+
+const initialState: TripState = {
   list: [],
   errors: [],
   loading: false
