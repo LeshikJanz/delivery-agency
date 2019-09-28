@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "client": "cross-env NODE_ENV=development webpack-dev-server --color --progress",
-    "server": "node .",
+    "server": "nodemon server/server.js --watch server",
     "posttest": "npm run lint"
   },
   "dependencies": {
@@ -21,10 +21,12 @@
     "loopback": "^3.19.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.0.0",
+    "nodemon": "^1.19.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.1.1",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0"
@@ -40,6 +42,7 @@
     "@types/node": "^12.6.2",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.8.5",
+    "@types/react-redux": "^7.1.4",
     "babel-loader": "^8.0.6",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.2.0",

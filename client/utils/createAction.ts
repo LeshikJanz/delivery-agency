@@ -1,4 +1,4 @@
-export function createAction (type: string, payloadMapper: any) {
+export function createAction (type: string, payloadMapper?: any) {
     function actionCreator (...args) {
       return {
         type,

@@ -12,6 +12,7 @@
     "I18n": true,
     "Generator": true,
     "IntersectionObserver": true,
+    "indent": ["error", 4, { "SwitchCase": 1 }],
 
     // Flow
     "Class": true,

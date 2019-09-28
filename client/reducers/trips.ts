@@ -1,10 +1,23 @@
-import { createReducer } from 'utils/createReducer'
+import { createReducer } from '../utils/createReducer'
+import { Trip } from '../types/Trip';
+import { fetchTripsRequested, fetchTripsSucceeded, fetchTripsFailed } from '../actions/trips';
 
-const initialState = {
+const initialState: { list: Trip[], errors: string[], loading: boolean } = {
   list: [],
-  selected: null,
-  loading: false,
+  errors: [],
+  loading: false
 };
 
 export default createReducer({
+  [fetchTripsRequested]: () => ({ ...initialState, loading: true }),
+  [fetchTripsSucceeded]: (state: any, payload: Trip[]) => ({
+    ...state,
+    list: payload,
+    loading: false,
+  }),
+  [fetchTripsFailed]: (state: any, error: Error) => ({
+    ...state,
+    error,
+    loading: false,
+  }),
 }, initialState);
