@@ -4,7 +4,6 @@ import moment from "moment"
 import { Trip as TripType } from "types/trip";
 
 function Trip({ fromName, toName, departAt, vehicle }: TripType) {
-  console.log("fromName", fromName)
   return (
     <tr>
       <td>{fromName}</td>

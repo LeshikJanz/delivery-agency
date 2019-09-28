@@ -11,7 +11,6 @@ export function* fetchTripsSaga() {
     const trips = yield api.fetchTrips();
     yield put(fetchTripsSucceeded(trips));
   } catch (error) {
-    console.log("error", error)
     yield put(fetchTripsFailed(error));
   }
 }
