@@ -1,3 +1,9 @@
-## Client
+# Delivery agency
 
-This is the place for your application front-end files.
+## Deployment
+
+```
+yarn
+yarn server
+yarn client // at the new terminal tab
+```
