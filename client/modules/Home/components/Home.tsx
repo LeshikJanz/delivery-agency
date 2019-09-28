@@ -18,33 +18,56 @@ type Props = {
   fetchTripsRequested: () => void;
 } & PropsFromState;
 
-class Home extends React.Component<Props> {
-  state = {};
+class Home extends React.Component<Props, TripType> {
+  state = {
+    fromName: "",
+    toName: "",
+    departAt: "",
+    vehicle: ""
+  };
 
   componentDidMount() {
     this.props.fetchTripsRequested();
   }
 
+  handleChange = (e: Event) =>
+    this.setState({ [e.target.name]: e.target.value });
+
+  getFilteredTrips = () =>
+    this.props.trips.filter(trip =>
+      trip.fromName.toLowerCase().includes(this.state.fromName.toLowerCase()) &&
+      trip.toName.toLowerCase().includes(this.state.toName.toLowerCase()) &&
+      trip.departAt.toLowerCase().includes(this.state.departAt.toLowerCase()) &&
+      trip.vehicle.toLowerCase().includes(this.state.vehicle.toLowerCase())
+    );
+
   render() {
-    console.log("this.props.trips", this.props.trips);
     if (this.props.loading) return <img src={spinner} />;
+    const trips = this.getFilteredTrips()
     return (
       <Fragment>
         <table>
           <thead>
             <tr>
-              <td>From</td>
-              <td>To</td>
-              <td>Departure time</td>
-              <td>Vehicle</td>
+              {Object.keys(this.state).map(filterParam => (
+                <td key={filterParam}>
+                  <input
+                    type="text"
+                    name={filterParam}
+                    placeholder={filterParam}
+                    onChange={this.handleChange}
+                  />
+                </td>
+              ))}
             </tr>
           </thead>
           <tbody>
-            {this.props.trips.map((trip: TripType) => (
+            {trips.map((trip: TripType) => (
               <Trip key={trip.id} {...trip} />
             ))}
           </tbody>
         </table>
+        {!trips.length && <h3>Nothing found</h3>}
       </Fragment>
     );
   }
