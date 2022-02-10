@@ -22,7 +22,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.0.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.19.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
